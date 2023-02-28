@@ -1,8 +1,16 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
-const http = require('http').Server(app);
-const PORT = 5000
+var fs = require( 'fs' );
+const options = {
+        key: fs.readFileSync('./private.key'),
+        cert: fs.readFileSync('./certificate.crt'),
+        ca: fs.readFileSync('./ca_bundle.crt'),
+        requestCert: false,
+        rejectUnauthorized: false
+    }
+const http = require('https').createServer(options,app);
+const PORT = 443
 const socketIO = require('socket.io')(http, {
     cors: {
         origin: "*"
