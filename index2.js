@@ -10,6 +10,8 @@ const options = {
         rejectUnauthorized: false
     }
 const http = require('https').createServer(options,app);
+// const http = require('http').Server(app);
+// const PORT = 5000
 const PORT = 443
 const socketIO = require('socket.io')(http, {
     cors: {
