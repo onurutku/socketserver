@@ -3,7 +3,7 @@ const app = express()
 const cors = require("cors")
 var fs = require( 'fs' );
 const options = {
-        key: fs.readFileSync('private.key'),
+        //key: fs.readFileSync('private.key'),
         cert: fs.readFileSync('certificate.crt'),
         ca: fs.readFileSync('ca_bundle.crt'),
         requestCert: false,
